@@ -9,24 +9,30 @@ import 'package:flutter/material.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(ThemeState(themeMode: ThemeMode.system)) {
+  ThemeCubit() : super(ThemeInitial(themeMode: ThemeMode.system)) {
     updateTheme();
   }
 
   void updateTheme() {
     final currentTheme = AppTheme.currentSystemTheme;
-    currentTheme == Brightness.light ? _setTheme(ThemeMode.light) : _setTheme(ThemeMode.dark);
+    currentTheme == Brightness.light ? setTheme(ThemeMode.light) : setTheme(ThemeMode.dark);
   }
 
-  void changeTheme() {
+  void switchTheme() {
     final currentTheme = AppTheme.currentSystemTheme;
-    log(currentTheme.toString());
-    currentTheme == Brightness.light ? _setTheme(ThemeMode.dark) : _setTheme(ThemeMode.light);
+    currentTheme == Brightness.light ? setTheme(ThemeMode.dark) : setTheme(ThemeMode.light);
   }
 
-  void _setTheme(ThemeMode themeMode) {
+  void setTheme(ThemeMode themeMode) {
     log('set theme called');
     AppTheme.setStatusBarAndNavBarColor(themeMode);
-    emit(ThemeState(themeMode: themeMode));
+    if (themeMode == ThemeMode.dark) {
+      log('Emiting themedark');
+      log(themeMode.toString());
+      emit(ThemeDark(themeMode: themeMode));
+    } else {
+      log('Emiting theme light');
+      emit(ThemeLight(themeMode: themeMode));
+    }
   }
 }

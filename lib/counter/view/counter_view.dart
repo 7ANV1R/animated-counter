@@ -8,13 +8,14 @@ class CounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentTheme = AppTheme.currentSystemTheme;
     return Scaffold(
       body: Container(
         color: Theme.of(context).backgroundColor,
         child: Center(
             child: TextButton(
                 onPressed: () {
-                  context.read<ThemeCubit>().updateTheme();
+                  context.read<ThemeCubit>().switchTheme();
                 },
                 child: Text('Switch'))),
       ),

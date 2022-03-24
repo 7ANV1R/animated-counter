@@ -63,14 +63,12 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final themestate = context.select((ThemeCubit cubit) => cubit.state);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: context.select((ThemeCubit cubit) {
-        log(cubit.state.themeMode.toString());
-        return cubit.state.themeMode;
-      }),
+      themeMode: themestate is ThemeDark ? ThemeMode.dark : ThemeMode.light,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
