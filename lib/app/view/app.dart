@@ -7,8 +7,6 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'dart:developer';
-
 import 'package:animated_counter/counter/counter.dart';
 import 'package:animated_counter/counter/cubit/theme_cubit.dart';
 import 'package:animated_counter/l10n/l10n.dart';
