@@ -1,6 +1,10 @@
 part of 'counter_cubit.dart';
 
-@immutable
-abstract class CounterState {}
+class CounterState extends Equatable {
+  const CounterState({required this.counterValue});
 
-class CounterInitial extends CounterState {}
+  final int counterValue;
+
+  @override
+  List<Object?> get props => [counterValue];
+}
