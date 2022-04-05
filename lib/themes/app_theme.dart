@@ -25,6 +25,30 @@ class AppTheme {
     // colorScheme: ColorScheme.fromSwatch().copyWith(
     //   secondary: lightAccentColor,
     // ),
+
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+        height: 36 / 28,
+      ),
+      headline2: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.6,
+        height: 28 / 22,
+      ),
+      bodyText1: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        height: 24 / 16,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        height: 22 / 14,
+      ),
+    ),
   );
 
   static Brightness get currentSystemTheme => SchedulerBinding.instance!.window.platformBrightness;
@@ -35,6 +59,29 @@ class AppTheme {
     backgroundColor: darkBackgroundColor,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: darkAccentColor),
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+        height: 36 / 28,
+      ),
+      headline2: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w800,
+        letterSpacing: -0.6,
+        height: 28 / 22,
+      ),
+      bodyText1: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        height: 24 / 16,
+      ),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        height: 22 / 14,
+      ),
+    ),
   );
 
   static void setStatusBarAndNavBarColor(ThemeMode themeMode) {
@@ -43,8 +90,9 @@ class AppTheme {
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
         systemNavigationBarIconBrightness: themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
-        systemNavigationBarColor: themeMode == ThemeMode.light ? darkBackgroundColor : lightBackgroundColor,
-        systemNavigationBarDividerColor: Colors.transparent,
+        // systemNavigationBarIconBrightness: themeMode == ThemeMode.light ? Brightness.dark : Brightness.light,
+        systemNavigationBarColor: themeMode == ThemeMode.light ? lightBackgroundColor : darkBackgroundColor,
+        // systemNavigationBarDividerColor: Colors.transparent,
       ),
     );
   }

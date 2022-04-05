@@ -18,17 +18,16 @@ class ThemeCubit extends Cubit<ThemeState> {
     currentTheme == Brightness.light ? setTheme(ThemeMode.light) : setTheme(ThemeMode.dark);
   }
 
-  void switchTheme() {
-    final currentTheme = AppTheme.currentSystemTheme;
-    currentTheme == Brightness.light ? setTheme(ThemeMode.dark) : setTheme(ThemeMode.light);
-  }
+  // void switchTheme() {
+  //   final currentTheme = AppTheme.currentSystemTheme;
+  //   currentTheme == Brightness.light ? setTheme(ThemeMode.dark) : setTheme(ThemeMode.light);
+  // }
 
   void setTheme(ThemeMode themeMode) {
     log('set theme called');
     AppTheme.setStatusBarAndNavBarColor(themeMode);
     if (themeMode == ThemeMode.dark) {
       log('Emiting themedark');
-      log(themeMode.toString());
       emit(ThemeDark(themeMode: themeMode));
     } else {
       log('Emiting theme light');
